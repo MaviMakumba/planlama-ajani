@@ -3,6 +3,7 @@ from tools.estimator import duration_estimator
 from tools.task_break import task_breakdown
 from tools.tool_definitions import TOOL_DEFINITIONS
 from tools.exporter import markdown_exporter
+from tools.tool_dispatcher import run_tool
 
 
 print("Date calculator test:")
@@ -25,3 +26,16 @@ export_result = markdown_exporter(
 )
 
 print(export_result["markdown"])
+
+print("\nTool dispatcher test:")
+
+dispatcher_result = run_tool("date_calculator", {
+    "start_date": "2026-05-06",
+    "amount": 2,
+    "unit": "week"
+})
+
+print(dispatcher_result)
+
+unknown_tool_result = run_tool("unknown_tool", {})
+print(unknown_tool_result)
