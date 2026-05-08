@@ -5,6 +5,8 @@ from tools.tool_definitions import TOOL_DEFINITIONS
 from tools.exporter import markdown_exporter
 from tools.tool_dispatcher import run_tool
 from tools.planning_pipeline import generate_project_plan
+from tools.demo_scenarios import get_demo_scenarios, get_demo_scenario_by_id
+
 
 print("Date calculator test:")
 print(date_calculator("2026-05-06", 3, "week"))
@@ -82,3 +84,11 @@ print(pipeline_json["summary"])
 print("Görev sayısı:", pipeline_json["task_count"])
 print("Toplam süre:", pipeline_json["estimated_total_min_days"], "-", pipeline_json["estimated_total_max_days"], "gün")
 print("İlk görev:", pipeline_json["tasks"][0])
+
+print("\nDemo scenarios test:")
+
+scenarios = get_demo_scenarios()
+print("Senaryo sayısı:", len(scenarios))
+
+selected = get_demo_scenario_by_id(1)
+print(selected)
