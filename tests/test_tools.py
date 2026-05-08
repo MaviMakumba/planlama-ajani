@@ -73,3 +73,12 @@ pipeline_result = generate_project_plan(
 )
 
 print(pipeline_result["markdown"])
+
+print("\nPlanning pipeline JSON test:")
+
+pipeline_json = generate_project_plan("Yapay zeka destekli mobil uygulama")
+
+print(pipeline_json["summary"])
+print("Görev sayısı:", pipeline_json["task_count"])
+print("Toplam süre:", pipeline_json["estimated_total_min_days"], "-", pipeline_json["estimated_total_max_days"], "gün")
+print("İlk görev:", pipeline_json["tasks"][0])
