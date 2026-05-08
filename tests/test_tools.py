@@ -39,3 +39,27 @@ print(dispatcher_result)
 
 unknown_tool_result = run_tool("unknown_tool", {})
 print(unknown_tool_result)
+
+print("\nEdge case testleri:")
+
+print(run_tool("date_calculator", {
+    "start_date": "2026-05-06",
+    "amount": -2,
+    "unit": "week"
+}))
+
+print(run_tool("date_calculator", {
+    "start_date": "2026-05-06",
+    "amount": 2,
+    "unit": "hafta"
+}))
+
+print(run_tool("duration_estimator", {
+    "task_name": "Backend geliştirme",
+    "complexity": "zor"
+}))
+
+print(run_tool("markdown_exporter", {
+    "project_name": "Test Projesi",
+    "tasks": "liste değil"
+}))
