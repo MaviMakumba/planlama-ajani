@@ -54,5 +54,26 @@ TOOL_DEFINITIONS = [
             },
             "required": ["project_name"]
         }
+    },
+        {
+        "name": "markdown_exporter",
+        "description": "Oluşturulan görev listesini okunabilir Markdown tablo formatına dönüştürür.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "project_name": {
+                    "type": "string",
+                    "description": "Markdown çıktısında kullanılacak proje adı"
+                },
+                "tasks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Markdown tabloya dönüştürülecek görev listesi"
+                }
+            },
+            "required": ["project_name", "tasks"]
+        }
     }
 ]
