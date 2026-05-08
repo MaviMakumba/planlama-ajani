@@ -4,7 +4,7 @@ from tools.task_break import task_breakdown
 from tools.tool_definitions import TOOL_DEFINITIONS
 from tools.exporter import markdown_exporter
 from tools.tool_dispatcher import run_tool
-
+from tools.planning_pipeline import generate_project_plan
 
 print("Date calculator test:")
 print(date_calculator("2026-05-06", 3, "week"))
@@ -63,3 +63,13 @@ print(run_tool("markdown_exporter", {
     "project_name": "Test Projesi",
     "tasks": "liste değil"
 }))
+
+print("\nPlanning pipeline test:")
+
+pipeline_result = generate_project_plan(
+
+    "Yapay zeka destekli mobil uygulama"
+
+)
+
+print(pipeline_result["markdown"])
