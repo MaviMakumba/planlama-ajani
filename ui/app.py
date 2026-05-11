@@ -4,14 +4,15 @@ import os
 
 # ui klasöründen bir üst dizine çıkıp tools klasörünü bulabilmesi için path ayarı
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from tools.planning_pipeline import generate_project_plan
+from agent.agent import PlanningAgent
 from tools.demo_scenarios import get_demo_scenarios
 
 # --- SAYFA AYARLARI ---
 st.set_page_config(page_title="AI Görev Planlayıcı", page_icon="🎯", layout="wide")
 
 # --- HAFIZA (SESSION STATE) YÖNETİMİ ---
+if "agent" not in st.session_state:
+    st.session_state.agent = PlanningAgent()
 if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "assistant", "content": "Merhaba! Ben proje planlama asistanınızım. Bana projenizden bahsedin."}]
 if "current_plan" not in st.session_state:
@@ -30,6 +31,7 @@ with st.sidebar:
         st.session_state.messages = [{"role": "assistant", "content": "Merhaba! Ben proje planlama asistanınızım. Bana projenizden bahsedin."}]
         st.session_state.current_plan = None
         st.session_state.project_name = "Plan"
+        st.session_state.agent.reset()
         st.rerun() # Sayfayı anında yeniler
 
     st.subheader("💡 Demo Senaryoları")
@@ -76,7 +78,7 @@ with col_chat:
             with st.spinner("Proje analiz ediliyor ve görevler planlanıyor..."):
                 # Şimdilik planning_pipeline üzerinden çalıştırıyoruz.
                 # Kişi 1 asıl agent.py'yi bitirdiğinde buradaki fonksiyonu değiştireceğiz.
-                result = generate_project_plan(user_input)
+                result = st.session_state.agent.run(user_input)
                 
                 if result.get("success"):
                     response_text = result["summary"]

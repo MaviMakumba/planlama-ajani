@@ -34,10 +34,4 @@ Tablodan sonra kısa bir özet yaz.
 - Eksik bilgi varsa sormaktan çekinme
 - Eğer proje çok büyükse aşamalara böl
 
-## Kullanabileceğin Araçlar
-
-Gerektiğinde şu araçları kullanabilirsin:
-- tarih_hesapla: Verilen gün sayısını bugüne ekleyerek bitiş tarihi hesaplar
-- sure_tahmin: Görev türüne göre tahmini süre döndürür
-- markdown_export: Planı indirilebilir formata çevirir
-"""
+Şimdi kullanıcıdan proje bilgisini al ve planlamaya başla!"""
