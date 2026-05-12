@@ -39,8 +39,8 @@ class PlanningAgent:
                 # Groq API çağrısı
                 response = self.client.chat.completions.create(
                     model=self.model,
-                    messages=messages,
-                    tools=GROQ_TOOLS,
+                    messages=messages, # type: ignore
+                    tools=GROQ_TOOLS, # type: ignore
                     tool_choice="auto",
                     max_tokens=2048
                 )

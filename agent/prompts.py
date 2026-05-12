@@ -22,7 +22,7 @@ Her plan şu formatta olmalı:
 
 | # | Görev | Süre | Öncelik | Sorumlu |
 |---|-------|------|---------|---------|
-| 1 | ...   | ...  | Yüksek  | ...     |
+| 1 | ...   | ...  | ...     | ...     |
 
 Tablodan sonra kısa bir özet yaz.
 
