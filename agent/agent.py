@@ -37,9 +37,13 @@ class PlanningAgent:
                     messages=messages,  # type: ignore
                     tools=GROQ_TOOLS,   # type: ignore
                     tool_choice="auto",
+                    parallel_tool_calls=False,
                     max_tokens=2048
                 )
             except Exception as e:
+                if "tool_use_failed" in str(e) and tur < 4:
+                    print(f"  → Bozuk araç formatı, yeniden deneniyor (tur {tur+1})...")
+                    continue  # hata döndürme, döngüyü başa al
                 return {
                     "success": False,
                     "error": f"Yapay zeka modeline bağlanırken hata oluştu: {str(e)}",
